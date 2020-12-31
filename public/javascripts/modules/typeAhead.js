@@ -13,6 +13,9 @@ function searchResultsHTML(stores) {
 
 
 function typeAhead(search) {
+ 
+
+  
   if (!search) return;
 
   const searchInput = search.querySelector('input[name="search"]');
@@ -28,6 +31,7 @@ function typeAhead(search) {
     // show the search results!
     searchResults.style.display = 'block';
 
+ 
     axios
       .get(`/api/search?q=${this.value}`)
       .then(res => {
@@ -49,6 +53,8 @@ function typeAhead(search) {
     if (![38, 40, 13].includes(e.keyCode)) {
       return; // nah
     }
+
+    
     const activeClass = 'search__result--active';
     const current = search.querySelector(`.${activeClass}`);
     const items = search.querySelectorAll('.search__result');

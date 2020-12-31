@@ -8,7 +8,8 @@ import ajaxHeart from './modules/heart';
 
 typeAhead( $('.search') );
 
-//autocomplete( $('#address'), $('#lat'), $('#lng') );
+autocomplete( $('#address'), $('#lat'), $('#lng') );
+
 
 makeMap( $('#map') );
 

@@ -963,11 +963,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 function autocomplete(input, latInput, lngInput) {
+
   if (!input) return; // skip this fn from running if there is not input on the page
   var dropdown = new google.maps.places.Autocomplete(input);
 
   dropdown.addListener('place_changed', function () {
     var place = dropdown.getPlace();
+
     latInput.value = place.geometry.location.lat();
     lngInput.value = place.geometry.location.lng();
   });
@@ -1130,6 +1132,7 @@ function searchResultsHTML(stores) {
 }
 
 function typeAhead(search) {
+
   if (!search) return;
 
   var searchInput = search.querySelector('input[name="search"]');
@@ -1165,6 +1168,7 @@ function typeAhead(search) {
     if (![38, 40, 13].includes(e.keyCode)) {
       return; // nah
     }
+
     var activeClass = 'search__result--active';
     var current = search.querySelector('.' + activeClass);
     var items = search.querySelectorAll('.search__result');
@@ -2828,7 +2832,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _typeAhead2.default)((0, _bling.$)('.search'));
 
-//autocomplete( $('#address'), $('#lat'), $('#lng') );
+(0, _autocomplete2.default)((0, _bling.$)('#address'), (0, _bling.$)('#lat'), (0, _bling.$)('#lng'));
 
 (0, _map2.default)((0, _bling.$)('#map'));
 
