@@ -1,6 +1,9 @@
 link to the project:
 https://stores-site.herokuapp.com/
->>>>>>> 3dafcf0caac59594739df5966d35928a908b234b
+
+test user login:
+email: test@test.com 
+password: test
 
 This project is a full stack store application which users can search, geolocate, review and curate their favourite restaurants from around the world.
 the backend of the application is built with Nodejs, Express framework, mongoDB as the database using the Moongose librery and the front end is using the Pug template engine.
