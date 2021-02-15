@@ -60,14 +60,12 @@ storeSchema.pre('save', async function(next) {
     return; // stop this function from running
   }
   this.slug = slug(this.name);
-  // find other stores that have a slug of wes, wes-1, wes-2
   const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, 'i');
   const storesWithSlug = await this.constructor.find({ slug: slugRegEx });
   if(storesWithSlug.length) {
     this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
   }
   next();
-  // TODO make more resiliant so slugs are unique
 });
 
 
@@ -103,9 +101,9 @@ storeSchema.statics.getTopStores = function() {
 
 // find reviews where the stores _id property === reviews store property
 storeSchema.virtual('reviews', {
-  ref: 'Review', // what model to link?
-  localField: '_id', // which field on the store?
-  foreignField: 'store' // which field on the review?
+  ref: 'Review', 
+  localField: '_id', 
+  foreignField: 'store' 
 });
 
 function autopopulate(next) {

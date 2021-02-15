@@ -67,7 +67,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// After allllll that above middleware, we finally handle our own routes!
+// handle our the routes
 app.use('/', routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
@@ -85,5 +85,4 @@ if (app.get('env') === 'development') {
 // production error handler
 app.use(errorHandlers.productionErrors);
 
-// done! we export it so we can start the site in start.js
 module.exports = app;
