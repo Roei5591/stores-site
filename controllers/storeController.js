@@ -46,7 +46,7 @@ exports.addStore = (req , res) => {
 };
 
 exports.createStore = async (req , res) => {
-	 req.body.author =req.user._id;
+	 req.body.author = req.user._id;
 	 const store = await (new Store(req.body)).save();
 	 req.flash('success', `Successfully Creat ${store.name}. Care to leave a review?`)
 	 res.redirect(`/store/${store.slug}`);
@@ -143,7 +143,6 @@ exports.searchStores = async (req, res) => {
   .limit(5);
   res.json(stores);
 };
-
 
 exports.mapStores = async (req, res) => {
   const coordinates = [req.query.lng, req.query.lat].map(parseFloat);
